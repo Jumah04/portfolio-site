@@ -44,12 +44,19 @@ export default function Hero({ profileData }: HeroProps) {
         </div>
 
         <div className="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] shrink-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/profile.jpg"
-            alt={profileData.name}
-            className="w-full h-auto rounded-2xl shadow-xl border border-gray-200"
-          />
+          <picture>
+            <source srcSet="/profile.webp" type="image/webp" />
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/profile.jpg"
+              alt={profileData.name}
+              width={1200}
+              height={1500}
+              fetchPriority="high"
+              decoding="async"
+              className="w-full h-auto rounded-2xl shadow-xl border border-gray-200"
+            />
+          </picture>
         </div>
       </div>
     </section>
